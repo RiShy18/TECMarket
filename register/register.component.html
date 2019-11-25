@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <span>Client Log Up</span>
+</mat-toolbar>
+
+<!-- Foro para registrar un usuario empleado -->
+<mat-card-content>
+  <form class="my-form">
+      <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="John" name="name" [formControl]="name" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="122223333" name="ID" [formControl]="idClient" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="55447788" name="phone" [formControl]="phone" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+          <mat-label>email</mat-label>
+          <input matInput placeholder="rg@mail.com" name="email" [formControl]="email" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Birth Date</mat-label>
+        <input matInput placeholder="xx/YY/ZZZZ" name="bDate" [formControl]="bDate" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="username" name="username" [formControl]="username" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="*****" name="password" [formControl]="password" required>
+      </mat-form-field>
+
+  </form>
+</mat-card-content>
+
+<!-- Botones de navegacion -->
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../home" color="warn">CANCELAR</button>
+    <button mat-raised-button color="primary" routerLink="../home">REGISTRAR</button>
+</mat-card-actions>

@@ -1,0 +1,51 @@
+<app-nav> </app-nav>
+<app-nav-report></app-nav-report>
+
+<mat-divider></mat-divider>
+
+<!-- Creacion de Filtro de busqueda -->
+<mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    
+    <!-- Creacion de tabla con informacion de dataSource -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+        
+        <ng-container matColumnDef="idClient">
+            <th mat-header-cell *matHeaderCellDef> ID</th>
+            <td mat-cell *matCellDef="let pasajero">{{pasajero.idClient}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name</th>
+            <td mat-cell *matCellDef="let pasajero">{{pasajero.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone</th>
+            <td mat-cell *matCellDef="let pasajero">{{pasajero.phone}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> email</th>
+            <td mat-cell *matCellDef="let pasajero">{{pasajero.email}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="bDate">
+                <th mat-header-cell *matHeaderCellDef> Birth Date</th>
+                <td mat-cell *matCellDef="let pasajero">{{pasajero.bDate}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef> Username</th>
+                    <td mat-cell *matCellDef="let pasajero">{{pasajero.username}}</td>
+        </ng-container>
+
+
+    
+       
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    </table>
