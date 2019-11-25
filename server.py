@@ -36,9 +36,26 @@ def get_all_clients():
         })
     return jsonify(result)
 
+
+
+@app.route("/api/client", methods=["GET"]) #API that gets
+def get_a_client():
+    data= mongo.db.clients
+    result=[]
+    field = data.find_one() ## Never show passwords
+    result.append({"_id":str(field["_id"]),
+    "idClient": field["idClient"],
+    "name": str(field["name"]),
+	"phone":field["phone"],
+    "email": str(field["email"]),
+    "bDate":str(field["bDate"]),
+    "username": str(field["username"]),
+    })
+    return jsonify(result)
+
 #Post
 
-@app.route("/api/clienteN", methods=["POST"]) #la API de gets es Tasks
+@app.route("/api/clientN", methods=["POST"]) #la API de gets es Tasks
 def add_cliente():
     data= mongo.db.clients
     idClient=request.get_json()["idClient"] #Insert
@@ -131,6 +148,46 @@ def delete_aeropuerto(id):
 
     return jsonify({"result": result})
 
+###############################
+# GOOGLE MAPS
+##############################
+@app.route("/api/place/<id>", methods=["GET"]) #Borrar sin drops
+def get_lat_lng(apiKey, address):
+    """
+    Returns the latitude and longitude of a location using the Google Maps Geocoding API. 
+    API: https://developers.google.com/maps/documentation/geocoding/start
 
+    # INPUT -------------------------------------------------------------------
+    apiKey                  [str]
+    address                 [str]
+
+    # RETURN ------------------------------------------------------------------
+    lat                     [float] 
+    lng                     [float] 
+    """
+    import requests
+    url = ('https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}'
+           .format(address.replace(' ','+'), apiKey))
+    try:
+        response = requests.get(url)
+        resp_json_payload = response.json()
+        lat = resp_json_payload['results'][0]['geometry']['location']['lat']
+        lng = resp_json_payload['results'][0]['geometry']['location']['lng']
+    except:
+        print('ERROR: {}'.format(address))
+        lat = 0
+        lng = 0
+    return lat, lng
+
+    
 if __name__ == "__main__":
     app.run(debug=True)
+    # get key
+    fname = '/Desktop/GoogleMapsAPIKey.txt'
+    file  = open(fname, 'r')
+    apiKey = file.read()
+
+    # get coordinates 
+    address = '1 Rocket Road, Hawthorne, CA'
+    lat, lng = get_lat_lng(apiKey, address)
+    print('{} Coordinates:\nLatitude:  {}°\nLongitude: {}°'.format(address,lat, lng))
