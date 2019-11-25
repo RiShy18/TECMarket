@@ -179,7 +179,43 @@ def get_lat_lng(apiKey, address):
         lng = 0
     return lat, lng
 
+@app.route("/api/placeN/<where>", methods=["POST"]) #la API de gets es Tasks
+def add_place2():
+    data= mongo.db.branchOffice
+    lista=[]
+    API= "AIzaSyDKELksQptaSrDm8VdOhghYXPG_OPbYbYE"
+    lista = get_lat_lng(API, where)
+
+    idBranchOffice=request.get_json()["idBranchOffice"] #Insert
+    name=request.get_json()["name"] #Insert
+    address=request.get_json()["address"] #Insert
+    latitude= lista[0]
+    longitude= lista[1]
     
+    task_id = data.insert({"idBranchOffice": idBranchOffice, "name":name,"address": address, "latitude": latitude, "longitude": longitud})
+
+    new_task = data.find_one({"_id": task_id})
+
+    result={"idBranchOffice": new_task["idBranchOffice"]}
+    return jsonify({"result":result})
+
+@app.route("/api/placeN", methods=["POST"]) #la API de gets es Tasks
+def add_place():
+    data= mongo.db.branchOffice
+
+    idBranchOffice=request.get_json()["idBranchOffice"] #Insert
+    name=request.get_json()["name"] #Insert
+    address=request.get_json()["address"] #Insert
+    latitude= request.get_json()["latitude"]
+    longitude= request.get_json()["longitude"]
+    
+    task_id = data.insert({"idBranchOffice": idBranchOffice, "name":name,"address": address, "latitude": latitude, "longitude": longitud})
+
+    new_task = data.find_one({"_id": task_id})
+
+    result={"idBranchOffice": new_task["idBranchOffice"]}
+    return jsonify({"result":result})
+
 if __name__ == "__main__":
     app.run(debug=True)
     # get key
