@@ -183,7 +183,7 @@ def get_lat_lng(apiKey, address):
 def add_place2():
     data= mongo.db.branchOffice
     lista=[]
-    API= "AIzaSyDKELksQptaSrDm8VdOhghYXPG_OPbYbYE"
+    API= "AIzaSyDKELksQpta#############" #Censored
     lista = get_lat_lng(API, where)
 
     idBranchOffice=request.get_json()["idBranchOffice"] #Insert
