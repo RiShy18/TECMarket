@@ -1,0 +1,18 @@
+<mat-toolbar color= "primary">
+  <!-- Barra de navacion para los reportes despliegados en la ventana de Home -->
+  <ng-container>
+    <mat-toolbar-row>
+    
+      <div class="routes">
+        <a mat-button routerLink="../maletasXclientes">Info Pasajeros</a>
+        <a mat-button routerLink="../conciliacion">Vuelos y Boletos</a>
+        <a mat-button routerLink="../boletos">Rango de Boletos</a>
+        <a mat-button routerLink="../destinos">Destinos más visitados</a>
+        <a mat-button routerLink="../conciliacion">Cantidad de compras del sistema</a>
+
+      </div>
+    </mat-toolbar-row>
+    </ng-container>
+    <ng-content select="mat-toolbar-row"></ng-content>
+</mat-toolbar>
+  

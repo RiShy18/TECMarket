@@ -1,0 +1,31 @@
+<mat-toolbar color = "warn">
+  <span>Editar Maleta</span>
+</mat-toolbar>
+
+<!-- Foro con informacion de la edicion de maletas -->
+<mat-card-content>
+  <form class="my-form">
+    <mat-form-field class="full-width">
+      <mat-label>ID</mat-label>
+      <input  matInput  placeholder="1"  name="idAerolinea" [formControl]="idAerolinea"  required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input  matInput  placeholder="Nombre" name="nombre" [formControl]="nombre" >
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Países donde realizan vuelos</mat-label>
+      <input  matInput  placeholder="Costa Rica, Panamá, etc..." name="paisVuelo" [formControl]="paisVuelo" >
+    </mat-form-field>
+
+    
+
+  </form>
+</mat-card-content>
+
+<!-- Botones de navegacion -->
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../maletas" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">EDITAR</button>
+</mat-card-actions>

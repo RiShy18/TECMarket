@@ -1,0 +1,32 @@
+
+
+<mat-toolbar color = "primary">
+    <span>Creación de Maleta</span>
+ </mat-toolbar>
+
+ <!-- foro para la informacion de creacion de maletas -->
+<mat-card-content>
+    <form class="my-form">
+      <mat-form-field class="full-width">
+        <mat-label>ID</mat-label>
+        <input  matInput  placeholder="1"  name="idAerolinea"  [formControl]="idAerolinea" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input  matInput  placeholder="Nombre empresa" name="nombre"  [formControl]="nombre" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Países donde realiza vuelos</mat-label>
+        <input  matInput  placeholder="Costa Rica, Panamá, etc..." name="paisVuelo"  [formControl]="paisVuelo" required>
+      </mat-form-field>
+
+
+    </form>
+  </mat-card-content>
+
+  <!-- botones de navegacion -->
+  <mat-card-actions class = "actionButtons">
+      <button mat-raised-button routerLink="../maletas" color="warn">CANCELAR</button>
+      <button mat-raised-button (click)="sendPost()" color="primary">CREAR</button>
+  </mat-card-actions>

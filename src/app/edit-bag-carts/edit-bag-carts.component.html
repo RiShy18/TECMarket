@@ -1,0 +1,36 @@
+<mat-toolbar color="warn">
+  <span>Editar Aeropuerto</span>
+</mat-toolbar>
+<!-- Informacion para el foro de edicion de bag Carts -->
+<mat-card-content>
+  <form class="my-form">
+    <mat-form-field class="full-width">
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="1" name="idAeropuerto" [formControl]="idAeropuerto" required>
+      </mat-form-field>
+
+    <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Laplace" name="nombre" [formControl]="nombre">
+      </mat-form-field>
+
+    <mat-form-field class="full-width">
+          <mat-label>Direccion</mat-label>
+          <input matInput placeholder="SJO" name="direccion" [formControl]="direccion">
+      </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Telefono</mat-label>
+        <input matInput placeholder="2222-2222" name="telefono" [formControl]="telefono">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Pagina Web</mat-label>
+      <input matInput placeholder="www.OwO.com" name="web" [formControl]="web">
+  </mat-form-field>   
+
+  </form>
+</mat-card-content>
+
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../bagCarts" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">EDITAR</button>
+</mat-card-actions>

@@ -1,0 +1,53 @@
+<app-nav> </app-nav>
+
+<mat-divider></mat-divider>
+
+<!-- Botones para navegar hacia agregar clientes y editar clientes -->
+<div class="buttons" >
+    <a mat-flat-button color ="primary" routerLink="../createClientes">Agregar</a>
+    <a mat-flat-button color ="warn" routerLink="../editClientes">Editar</a>
+</div>
+
+<mat-divider></mat-divider>
+
+<!-- Barra de busqueda -->
+<mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+    </mat-form-field>
+   
+    <!-- Tabla de datos de los Funcionarios -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+        
+        <ng-container matColumnDef="idFuncionario">
+            <th mat-header-cell *matHeaderCellDef> ID</th>
+            <td mat-cell *matCellDef="let funcionarios">{{funcionarios.idFuncionario}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre</th>
+            <td mat-cell *matCellDef="let funcionarios">{{funcionarios.nombre}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo">
+                <th mat-header-cell *matHeaderCellDef> Tipo de Funcionario</th>
+                <td mat-cell *matCellDef="let funcionarios">{{funcionarios.tipo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaIngreso">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Ingreso</th>
+            <td mat-cell *matCellDef="let funcionarios">{{funcionarios.fechaIngreso}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="area">
+            <th mat-header-cell *matHeaderCellDef> Área(s)</th>
+            <td mat-cell *matCellDef="let funcionarios">{{funcionarios.area}}</td>
+        </ng-container>
+
+
+    
+       
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    </table>

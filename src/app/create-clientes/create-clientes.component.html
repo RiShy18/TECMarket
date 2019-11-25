@@ -1,0 +1,42 @@
+<mat-toolbar color = "primary">
+    <span>Creación de Cliente</span>
+ </mat-toolbar>
+
+<!-- Foro para llenar informacion para la creacion de clientes -->
+<mat-card-content>
+    <form class="my-form">
+         <mat-form-field class="full-width">
+               <mat-label>ID</mat-label>
+               <input  matInput  placeholder="111112222"  name="idFuncionario"  [formControl]="idFuncionario" required>
+         </mat-form-field>
+
+       <mat-form-field class="full-width">
+         <mat-label>Nombre Completo</mat-label>
+         <input  matInput  placeholder="John"  name="nombre"  [formControl]="nombre" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+            <mat-label>Tipo de funcionario</mat-label>
+            <input  matInput  placeholder="Administrativo, Técnico, Operario" name="tipo"  [formControl]="tipo" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+         <mat-label>Fecha Ingreso</mat-label>
+         <input  matInput  placeholder="XX/YY/ZZZZ" name="fechaIngreso"  [formControl]="fechaIngreso" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+         <mat-label>Área</mat-label>
+         <input  matInput  placeholder="Carga, Sala de abordaje, Counter, Mantenimiento" name="area"  [formControl]="area" required>
+      </mat-form-field>
+
+      
+
+    </form>
+  </mat-card-content>
+
+  <!-- botones de accion para la navegacion -->
+  <mat-card-actions class = "actionButtons">
+      <button mat-raised-button routerLink="../clientes" color="warn">CANCELAR</button>
+      <button mat-raised-button (click)="sendPost()" color="primary">CREAR</button>
+  </mat-card-actions>

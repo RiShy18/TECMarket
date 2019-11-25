@@ -1,0 +1,45 @@
+<app-nav> </app-nav>
+<app-nav-report></app-nav-report>
+
+<mat-divider></mat-divider>
+
+<!-- Crea un filtro para busqueda -->
+<mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+    </mat-form-field>
+    
+    <!-- Genera tabla con informacion del dataSource -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+        
+        <ng-container matColumnDef="numvuelo">
+            <th mat-header-cell *matHeaderCellDef> Número de Vuelo</th>
+            <td mat-cell *matCellDef="let reporteConciliacion">{{reporteConciliacion.numvuelo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoavion">
+            <th mat-header-cell *matHeaderCellDef> Tipo de Avión</th>
+            <td mat-cell *matCellDef="let reporteConciliacion">{{reporteConciliacion.tipoavion}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="capacidad">
+            <th mat-header-cell *matHeaderCellDef> Capacidad</th>
+            <td mat-cell *matCellDef="let reporteConciliacion">{{reporteConciliacion.capacidad}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="maletasbagcart">
+            <th mat-header-cell *matHeaderCellDef> Total de Maletas en Bag Cart</th>
+            <td mat-cell *matCellDef="let reporteConciliacion">{{reporteConciliacion.maletasbagcart}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="maletasavion">
+            <th mat-header-cell *matHeaderCellDef> Total de Maletas en el Avión</th>
+            <td mat-cell *matCellDef="let reporteConciliacion">{{reporteConciliacion.maletasavion}}</td>
+        </ng-container>
+
+    
+       
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    </table>

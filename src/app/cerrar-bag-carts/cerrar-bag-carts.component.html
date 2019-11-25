@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>Eliminar Aeropuerto</span>
+</mat-toolbar>
+
+<!-- Input para defniir cual Bag Cart cerrar -->
+<mat-card-content>
+  <form class="my-form">
+      <mat-form-field class="full-width">
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="1" name="id" [formControl]="id" required>
+      </mat-form-field>
+
+  </form>
+</mat-card-content>
+
+<!-- Botones para navegar canclear accion o cerrar bagCarts -->
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../bagCarts" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">ELIMINAR</button>
+</mat-card-actions>

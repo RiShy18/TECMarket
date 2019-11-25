@@ -1,0 +1,25 @@
+<mat-toolbar color = "warn">
+  <span>Editar Cliente</span>
+</mat-toolbar>
+
+<!-- Foro con informacion para la edicion de clientes -->
+<mat-card-content>
+   <form class="my-form">
+
+      <mat-form-field class="full-width">
+         <mat-label>IDentificador de Empleado</mat-label>
+         <input  matInput  placeholder="XYYYYZZZZ" name="idFuncionario"  [formControl]="idFuncionario" required>
+      </mat-form-field>
+            
+      <mat-form-field class="full-width">
+        <mat-label>Áreas donde labora ahora</mat-label>
+        <input  matInput  placeholder="Carga, Sala de abordaje, Counter, Mantenimiento"  name="area"  [formControl]="area" >
+     </mat-form-field>
+
+   
+
+     <!-- botones de navegacion -->
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../clientes" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">EDITAR</button>
+</mat-card-actions>

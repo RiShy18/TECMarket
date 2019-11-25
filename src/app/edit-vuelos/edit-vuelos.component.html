@@ -1,0 +1,61 @@
+<mat-toolbar color="warn">
+  <span>Edición de Vuelos</span>
+</mat-toolbar>
+
+<!-- Foro con informacion para la edicion de vuelos -->
+<mat-card-content>
+  <form class="my-form">
+      <mat-form-field class="full-width">
+          <mat-label>ID Vuelo</mat-label>
+          <input matInput placeholder="1" name="idVuelo" [formControl]="idVuelo" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="TLC420" name="nombre" [formControl]="nombre">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Origen</mat-label>
+        <input matInput placeholder="NRC" name="origen" [formControl]="origen">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Destino</mat-label>
+      <input matInput placeholder="wat" name="destino" [formControl]="destino">
+  </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Precio</mat-label>
+      <input matInput placeholder="15000" name="precio" [formControl]="precio">
+  </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Restricciones</mat-label>
+      <input matInput placeholder="Libre de Gluten" name="restricciones" [formControl]="restricciones">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Características</mat-label>
+    <input matInput placeholder="Ejecutivo" name="caracteristicas" [formControl]="caracteristicas">
+</mat-form-field>
+<mat-form-field class="full-width">
+  <mat-label>Estado</mat-label>
+  <input matInput placeholder="A Tiempo" name="estado" [formControl]="estado">
+</mat-form-field>
+<mat-form-field class="full-width">
+  <mat-label>Capacidad Máxima</mat-label>
+  <input matInput placeholder="100" name="capMax" [formControl]="capMax">
+</mat-form-field>
+<mat-form-field class="full-width">
+  <mat-label>Fecha</mat-label>
+  <input matInput placeholder="100" name="fecha" [formControl]="fecha">
+</mat-form-field>
+  
+
+
+  </form>
+</mat-card-content>
+
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../vuelos" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">EDITAR</button>
+</mat-card-actions>

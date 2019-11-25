@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+  <span>Creación de Vuelos</span>
+</mat-toolbar>
+
+<!-- foro para la informacion para la creacion de vuelos -->
+<mat-card-content>
+  <form class="my-form">
+      <mat-form-field class="full-width">
+          <mat-label>ID Vuelo</mat-label>
+          <input matInput placeholder="1" name="idVuelo" [formControl]="idVuelo" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Tango436" name="nombre" [formControl]="nombre" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Origen</mat-label>
+        <input matInput placeholder="FND" name="origen" [formControl]="origen" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Destino</mat-label>
+        <input matInput placeholder="JPN" name="destino" [formControl]="destino" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Precio</mat-label>
+        <input matInput placeholder="1" name="precio" [formControl]="precio" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Restricciones</mat-label>
+        <input matInput placeholder="1" name="restricciones" [formControl]="restricciones" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Características</mat-label>
+        <input matInput placeholder="Detalles especiales" name="caracteristicas" [formControl]="caracteristicas" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Estado</mat-label>
+        <input matInput placeholder="A tiempo" name="estado" [formControl]="estado" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Capacidad Máxima</mat-label>
+        <input matInput placeholder="100" name="capMax" [formControl]="capMax" required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Fecha</mat-label>
+        <input matInput placeholder="100" name="fecha" [formControl]="fecha" required>
+      </mat-form-field>
+
+
+
+
+  </form>
+</mat-card-content>
+<!-- botones de navegacion -->
+<mat-card-actions class = "actionButtons">
+    <button mat-raised-button routerLink="../vuelos" color="warn">CANCELAR</button>
+    <button mat-raised-button (click)="sendPost()" color="primary">CREAR</button>
+</mat-card-actions>
