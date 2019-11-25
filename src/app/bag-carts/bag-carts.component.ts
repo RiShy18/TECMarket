@@ -15,7 +15,7 @@ export class BagCartsComponent implements OnInit {
     private bagCartObservable : Observable<any[]>;
     
     // Columnas a desplegar
-      displayedColumns: string[] = ['idAeropuerto','nombre','direccion','telefono','web'];
+      displayedColumns: string[] = ['idProduct','name','price','amount'];
       dataSource = new MatTableDataSource([this.BAGCART_DATA.join(",")]);
 
   // filtro para buscar item digitado en la barra de busqueda

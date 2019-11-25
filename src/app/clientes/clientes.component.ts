@@ -16,7 +16,7 @@ export class FuncionariosComponent implements OnInit {
     private maletasObservable : Observable<any[]>;
   
     // Informacion de columnas
-    displayedColumns: string[] = ['idFuncionario','nombre','tipo','fechaIngreso','area'];
+    displayedColumns: string[] = ['idOrder','idCliente','products','totalAmount','date', 'state', 'observations'];
     dataSource = new MatTableDataSource(this.FUNC_DATA);
   
     // Funcion de la barra de filtraje de la tabla
