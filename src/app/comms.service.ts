@@ -22,16 +22,16 @@ export class CommsService {
 
   public getFuncionarios(){
     // return this.http.get<any[]>('https://my-json-server.typicode.com/bakkim05/clientes/clientes');
-    return this.http.get<any[]>('http://127.0.0.1:5000/api/funcionarios');
+    return this.http.get<any[]>('http://127.0.0.1:5000/api/orders');
 
   }
 
   public getAerolineas(){
-    return this.http.get<any[]>('http://127.0.0.1:5000/api/aerolineas');
+    return this.http.get<any[]>('http://127.0.0.1:5000/api/offices');
   }
 
   public getAeropuertos(){
-      return this.http.get<any[]>('http://127.0.0.1:5000/api/aeropuertos');
+      return this.http.get<any[]>('http://127.0.0.1:5000/api/products');
     }
   //public getBagCarts(){
   //  return this.http.get<any[]>('http://127.0.0.1:5000/api/tasks');
